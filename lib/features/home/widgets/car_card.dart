@@ -33,7 +33,7 @@ final class CarCard extends StatelessWidget {
                 _CarImage(imageUrl: imageUrl),
                 _CarInfo(car: car),
                 const Spacer(),
-                _PriceInfo(pricePerDay: car.pricePerDay ?? 0),
+                _PriceInfo(pricePerDay: car.pricePerDay ?? 0,car: car,),
               ],
             ),
             Align(
@@ -50,10 +50,11 @@ final class CarCard extends StatelessWidget {
 final class _PriceInfo extends StatelessWidget {
   const _PriceInfo({
     required this.pricePerDay,
-    super.key,
+    super.key, required this.car,
   });
 
   final int pricePerDay;
+  final Car car;
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +62,8 @@ final class _PriceInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         //total price
-        const Text(
-          '4,585 ₺',
+          Text(
+          car.pricePerDay.toString(),
           style: TextStyle(
             fontSize: WidgetSizes.spacingXxl2,
             fontWeight: FontWeight.bold,
@@ -102,13 +103,13 @@ final class _CarInfo extends StatelessWidget {
           ),
         ),
         const SizedBox(height: WidgetSizes.spacingXSs),
-        const _CarDetailRow(
+          _CarDetailRow(
           icon: Icons.local_gas_station,
-          label: 'car.fuelType',
+          label: car.fuelType.toString(),
         ),
-        const _CarDetailRow(
+          _CarDetailRow(
           icon: Icons.settings,
-          label: 'car.gearType',
+          label: car.gearType.toString(),
         ),
         _CarDetailRow(
           icon: Icons.person,

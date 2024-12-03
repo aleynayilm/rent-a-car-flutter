@@ -22,6 +22,13 @@ final class Car extends INetworkModel<Car> with EquatableMixin {
     this.minAge,
     this.kilometer,
     this.dealershipId,
+        
+    this.dealership,
+    this.deleteds,
+    this.fuelTypeNavigation,
+    this.gearTypeNavigation,
+    this.reservations,
+
   });
 
   factory Car.fromJson(Map<String, dynamic> json) => _$CarFromJson(json);
@@ -36,6 +43,12 @@ final class Car extends INetworkModel<Car> with EquatableMixin {
   final int? pricePerDay;
   final bool? availabilityStatus;
   final String? createdAt;
+  Null? dealership;
+  Null? deleteds;
+  Null? fuelTypeNavigation;
+  Null? gearTypeNavigation;
+  Null? reservations;
+
 
   ///todo
   final String? updatedAt;
@@ -66,6 +79,12 @@ final class Car extends INetworkModel<Car> with EquatableMixin {
         minAge,
         kilometer,
         dealershipId,
+        dealership,
+        deleteds,
+        fuelTypeNavigation,
+        gearTypeNavigation,
+        reservations
+
       ];
 
   Car copyWith({
@@ -84,6 +103,12 @@ final class Car extends INetworkModel<Car> with EquatableMixin {
     int? minAge,
     int? kilometer,
     int? dealershipId,
+    Null? dealership,
+    Null? deleteds,
+    Null? fuelTypeNavigation,
+    Null? gearTypeNavigation,
+    Null? reservations,
+
   }) {
     return Car(
       vinNumber: vinNumber ?? this.vinNumber,
@@ -101,6 +126,12 @@ final class Car extends INetworkModel<Car> with EquatableMixin {
       minAge: minAge ?? this.minAge,
       kilometer: kilometer ?? this.kilometer,
       dealershipId: dealershipId ?? this.dealershipId,
+       dealership: dealership ?? this.dealership,
+      deleteds: deleteds ?? this.deleteds,
+      fuelTypeNavigation: fuelTypeNavigation ?? this.fuelTypeNavigation,
+      gearTypeNavigation: gearTypeNavigation ?? this.gearTypeNavigation,
+      reservations: reservations ?? this.reservations,
+
     );
   }
 }

@@ -24,7 +24,10 @@ final class RentACarService extends RentACarServiceInterface {
       parseModel: Car(),
       method: RequestType.GET,
     );
-
+    print(ServicePaths.listAllCars);
+   print('Status Code: ${response.error?.statusCode}');
+print('Error: ${response.error}');
+print('Response: ${response.data}');
     return response.data;
   }
 }
